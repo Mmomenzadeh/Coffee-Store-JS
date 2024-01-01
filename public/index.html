@@ -10,6 +10,28 @@
       href="./assets/imges/fav-icon.png"
       type="image/png-icon"
     />
+
+    <script type="text/javascript">
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = "light";
+
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = "dark";
+
+      // Whenever the user explicitly chooses to respect the OS preference
+      localStorage.removeItem("theme");
+    </script>
   </head>
   <body
     class="bg-zinc-100 dark:bg-zinc-800"
@@ -18,83 +40,49 @@
       background-repeat: no-repeat;
     "
   >
-    <!-- SVG -->
-    <!-- <svg>
-      <symbol
-        id="shopping-cart"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
-        />
-      </symbol>
-      <symbol
-        id="moon"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-        />
-      </symbol>
-
-      <symbol
-        id="arrow-right-end-on-rectangle"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth="{1.5}"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15M12 9l3 3m0 0-3 3m3-3H2.25"
-        />
-      </symbol>
-    </svg> -->
-    <!-- SVG -->
-
     <header
-      class="fixed top-9 right-0 left-0 flex items-cener w-[90%] h-24 mx-auto bg-black/50 rounded-3xl px-10
-      
-      backdrop-blur-[6px]
-      
-      "
+      class="fixed top-9 right-0 left-0 flex items-cener w-[90%] h-24 mx-auto bg-black/50 rounded-3xl px-10 backdrop-blur-[6px]"
     >
       <div class="flex justify-between items-center w-full">
         <!-- Logo & menu -->
-        <nav class="flex items-center gap-x-9">
+        <nav class="flex items-center gap-x-9 h-14">
           <!-- logo -->
           <div class="">
             <img src="./assets/imges/app-logo.png" alt="Logo" />
           </div>
           <!-- menu -->
-          <ul class="flex gap-9 text-xl text-zinc-300 tracking-tightest">
+          <ul
+            class="h-full flex gap-9 text-xl text-zinc-300 tracking-tightest child:leading-[56px]"
+          >
             <li class="font-DanaMedium text-orange-200">
               <a href="" class="">صحفه ی اصلی</a>
             </li>
-            <li class="">
-              <a href="" class="">فروشگاه</a>
+            <li class="relative group">
+              <a href="" class="group-hover:text-orange-300 transition-colors"
+                >فروشگاه</a
+              >
               <!-- submenu -->
-              <ul class="hidden">
-                <li class="">قهوه ی ویژه</li>
-                <li class="">ویژه در سطح جهانی</li>
-                <li class="">قهوه درجه یک</li>
-                <li class="">ترکیبات تجاری</li>
-                <li class="">کپسول قهوه</li>
-                <li class="">قهوه زینو برزیلی</li>
+              <ul
+                class="absolute top-full opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all bg-white dark:bg-zinc-700 shadow-normal w-52 p-4 space-y-4 text-base tracking-normal text-zinc-700 dark:text-white border-solid border-t-[3px] border-t-orange-300 rounded-2xl child-hover:text-orange-300"
+              >
+                <li>
+                  <a href="#" class="">قهوه ی ویژه</a>
+                </li>
+                <li>
+                  <a href="#" class="">ویژه در سطح جهانی</a>
+                </li>
+                <li>
+                  <a href="#" class="">قهوه درجه یک</a>
+                </li>
+                <li>
+                  <a href="#" class="">ترکیبات تجاری</a>
+                </li>
+                <li>
+                  <a href="#" class="">کپسول قهوه</a>
+                </li>
+                <li>
+                  <a href="#" class="">قهوه زینو برزیلی</a>
+                </li>
               </ul>
             </li>
             <li class="">
@@ -117,9 +105,9 @@
         <div class="flex text-orange-200 gap-x-10 text-xl tracking-tightest">
           <!-- toggle and  cart shopping -->
           <div class="flex items-center gap-x-5">
-            <!-- cart-->
-            <div class="">
-              <a href="" class="">
+            <!-- basket shopping-->
+            <div class="relative">
+              <a href="" class="block py-[14px]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -135,11 +123,82 @@
                   />
                 </svg>
               </a>
+
+              <div
+                class="absolute bg-white dark:bg-zinc-700 w-[400px] p-5 left-0 rounded-2xl border-solid border-t-[3px] border-t-orange-300"
+              >
+                <!-- cart header -->
+                <div
+                  class="flex justify-between text-xs font-DanaMedium tracking-normal"
+                >
+                  <p class="text-zinc-300">1 مورد</p>
+                  <div class="text-orange-300 flex items-center">
+                    <span>مشاهده ی سبد خرید</span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-4 h-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 19.5 8.25 12l7.5-7.5"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <!-- cart body -->
+                <div
+                  class="flex items-center border-solid border-b-[1px] border-b-gray-300 py-5"
+                >
+                  <img
+                    src="./assets/imges/products/p1.png"
+                    alt="products"
+                    class="w-30 h-30"
+                  />
+                  <div class="flex flex-col">
+                    <h5 class="text-zinc-700 dark:text-white">
+                      قهوه اسپرسو بن مانو مدل پریسکا 250 گرمی
+                    </h5>
+
+                    <div class="pt-6 flex flex-col">
+                      <span class="text-xs text-teal-600 dark:text-emerald-500"
+                        >14.500 تومان تخفیف</span
+                      >
+                      <div class="text-zinc-700 dark:text-white">
+                        <span class="font-DanaDemiBold text-xl">175,000 </span>
+                        <span class="text-base">تومان</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- cart footer-->
+
+                <div class="flex justify-between py-5">
+                  <div class="">
+                    <span class="text-gray-300 text-xs tracking-tight">مبلغ قابل پرداخت</span>
+                    <div class="text-zinc-700 dark:text-white font-DanaDemiBold text-xl ">
+                      <span>350,000 </span>
+
+                      <span class="font-Dana text-base">تومان</span>
+                    </div>
+                  </div>
+                  <button
+                    class="bg-teal-600 dark:bg-emerald-500 text-white tracking-normal px-7 py-3.5 rounded-xl"
+                  >
+                    ثبت سفارش
+                  </button>
+                </div>
+              </div>
             </div>
-            <!-- toggle -->
-            <div class="flex">
+            <!-- toggle switch btn site mode-->
+            <div class="flex" id="toggle-theme">
               <!-- moon -->
-              <button>
+              <button class="inline-block dark:hidden">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -155,10 +214,9 @@
                   />
                 </svg>
               </button>
-              <!-- moon -->
 
               <!-- sun -->
-              <button class="hidden">
+              <button class="hidden dark:inline-block">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -174,17 +232,15 @@
                   />
                 </svg>
               </button>
-              <!-- sun -->
             </div>
           </div>
 
-          <!--  -->
+          <!-- | -->
           <span class="block w-px h-14 bg-white/20"></span>
-          <!--  -->
+          <!-- | -->
 
+          <!-- Logn in Sign In -->
           <a href="" class="flex items-center gap-x-2.5">
-            <!-- svg -->
-
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -204,5 +260,7 @@
         </div>
       </div>
     </header>
+
+    <script src="./assets/scripts/app.js"></script>
   </body>
 </html>

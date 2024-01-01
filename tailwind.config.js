@@ -31,6 +31,9 @@ module.exports = {
       letterSpacing: {
         tightest: "-0.065em",
       },
+      spacing: {
+        30: "120px",
+      },
     },
 
     container: {
@@ -40,5 +43,10 @@ module.exports = {
 
   darkMode: "class",
 
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant("child", "&>*");
+      addVariant("child-hover", "&>*:hover");
+    },
+  ],
 };
