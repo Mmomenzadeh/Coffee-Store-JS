@@ -11,15 +11,12 @@ module.exports = {
           900: "#634832",
         },
       },
-
       boxShadow: {
         normal: "0px 1px 10px 0px #0000000D",
       },
-
       borderRadius: {
         "4xl": "2rem",
       },
-
       fontFamily: {
         Dana: "Dana",
         DanaMedium: "Dana Medium",
@@ -36,8 +33,25 @@ module.exports = {
       },
     },
 
+    screens: {
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+    },
     container: {
-      center: true,
+      center: true, 
+      padding: {
+        DEFAULT: "1rem",
+        lg: "0.625rem",
+      },
     },
   },
 
@@ -47,6 +61,7 @@ module.exports = {
     function ({ addVariant }) {
       addVariant("child", "&>*");
       addVariant("child-hover", "&>*:hover");
+      addVariant("even-child", "&:nth-child(even)");
     },
   ],
 };
