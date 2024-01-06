@@ -31,9 +31,16 @@ module.exports = {
       spacing: {
         30: "120px",
       },
+      backgroundImage: {
+        "home-header-desktop": "url(../images/headerBgDesktop.webp)",
+        "home-header-mobile": "url(../images/headerBgMobile.webp)",
+      },
     },
 
     screens: {
+      xs: "480px",
+      // => @media (min-width: 480px) { ... }
+
       sm: "640px",
       // => @media (min-width: 640px) { ... }
 
@@ -47,7 +54,7 @@ module.exports = {
       // => @media (min-width: 1280px) { ... }
     },
     container: {
-      center: true, 
+      center: true,
       padding: {
         DEFAULT: "1rem",
         lg: "0.625rem",

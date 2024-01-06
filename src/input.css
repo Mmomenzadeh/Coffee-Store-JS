@@ -78,6 +78,67 @@
   }
 
   .appBackground {
-    @apply bg-[url('../images/headerBgMobile.webp')] md:bg-[url('../images/headerBgDesktop.webp')] bg-no-repeat;
+    @apply bg-[url('../images/headerBgMobile.webp')] h-[200px] sm:aspect-auto md:h-auto md:bg-[url('../images/headerBgDesktop.webp')] bg-no-repeat bg-[center_top] bg-cover;
+  }
+
+  .circle {
+    @apply rounded-full flex justify-center items-center;
+  }
+  .circle-lg {
+    @apply w-[203px] h-[203px] border-solid border border-white/25;
+  }
+  .circle-md {
+    @apply w-[145px] h-[145px] border-solid border border-white/50;
+  }
+  .circle-sm {
+    @apply w-[95px] h-[95px] border-solid border border-white/75;
+  }
+
+  @media (min-width: 1024px) {
+    html.dark {
+      .products {
+        background-image: url("../images/body-bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+      }
+    }
+
+    .products {
+      background: linear-gradient(
+          rgba(243, 244, 246, 0.65),
+          rgba(243, 244, 246, 0.65)
+        ),
+        url("../images/body-bg.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 900px;
+    }
+  }
+
+  .products-title {
+    @apply text-2xl md:text-5xl font-MorabbaMedium text-zinc-700 dark:text-white leading-6;
+  }
+  .products-subTitle {
+    @apply block   text-lg md:text-3xl font-MorabbaLight text-zinc-700 dark:text-white  mt-2;
+  }
+  .products-link {
+    @apply flex items-center gap-x-1 text-base md:text-xl text-orange-300  tracking-tightest hover:bg-orange-300/20 h-10  rounded-md px-2;
+  }
+
+  .offer {
+    @apply relative text-gray-400;
+  }
+
+  .offer::after {
+    content: "";
+    position: absolute;
+    background-color: #ef4444;
+    width: 100%;
+    height: 1px;
+    inset: 0;
+    bottom: 2px;
+    margin: auto;
   }
 }
