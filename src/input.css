@@ -184,24 +184,63 @@
     @apply bg-white dark:bg-zinc-700 text-zinc-700 dark:text-white shadow-normal rounded-2xl;
   }
 
-  .Advertising-banner {
+  .btn-Advertising {
+    background: linear-gradient(270deg, #fdba74 0%, #fed7aa 100%);
+    @apply font-DanaMedium text-sm py-1.5 pr-2.5 rounded-2xl;
+  }
+
+  .Advertising-bg {
     background: linear-gradient(
       90deg,
       rgb(16, 185, 129) 0%,
       rgb(5, 150, 105) 100%
     );
-
-    @apply rounded-2xl flex-shrink-0 h-auto lg:h-36;
   }
 
-  .Advertising-btn {
-    background: linear-gradient(
-      270deg,
-      rgb(253, 186, 116) 0%,
-      rgb(254, 215, 170) 100%
-    );
+  .services {
+    position: relative;
+  }
 
-    @apply flex-center h-[32px] w-[110px] rounded-full py-1.5 pr-2.5 text-xs lg:text-sm font-DanaMedium text-white;
+  .services::after,
+  .services::before {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #D1D5DB;
+  }
+
+  html.dark .services::after,
+  html.dark .services::before {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .services::after {
+    width: calc(100% - 1rem);
+    height: 1px;
+  }
+
+  .services::before {
+    height: calc(100% + 20px);
+    width: 1px;
+  }
+
+  @media (min-width : 1024px) {
+    .services::after,
+    .services::before {
+      content: none;
+    }
+  }
+
+
+  .social-btn{
+    @apply rounded-xl flex-grow
+  }
+
+  .ltr{
+    direction: ltr ; 
+    text-align: left
   }
 }
 

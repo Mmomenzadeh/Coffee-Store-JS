@@ -1,7 +1,8 @@
+
 const theme = document.querySelectorAll(".toggle-theme");
 const submenu = document.querySelector("#submenu-handle");
 const mobileSubmenuBtn = document.querySelector(".mobileSubmenu-btn-open");
-
+// const querySearch = document.querySelector("#quickSearch");  
 
 // functions //
 // To remove and add a class specifically to an element
@@ -82,3 +83,16 @@ closeModalHandle(
   "-left-64",
   ".cartShoppingModal"
 );
+
+//////
+
+// console.log(quickSearchData)
+
+// for (const item of quickSearchData) {
+//   console.log(item)
+//   const link = document.createElement("a");
+//   link.classList.add("");
+//   link.innerHTML = item.title;
+
+//   querySearch.appendChild(link);
+// }
